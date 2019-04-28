@@ -17,14 +17,26 @@ module.exports = appInfo => {
 
   // add your middleware config here
   config.middleware = [];
+  //mysql 配置
+  config.mysql={
+   // 单数据库信息配置
+   client: {
+    // host
+    host: 'rm-bp12c1m40v95055tkyo.mysql.rds.aliyuncs.com',
+    // 端口号
+    port: '3306',
+    // 用户名
+    user: 'xzl',
+    // 密码
+    password: 'xzl18896988127XZL',
+    // 数据库名
+    database: 'blog',
+  },
+  // 是否加载到 app 上，默认开启
+  app: true,
+  // 是否加载到 agent 上，默认关闭
+  agent: false,
+};
 
-  // add your user config here
-  const userConfig = {
-    // myAppName: 'egg',
-  };
-
-  return {
-    ...config,
-    ...userConfig,
-  };
+  return config;
 };
