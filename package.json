@@ -30,7 +30,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-xzlblog_server",
+    "start": "egg-scripts start --daemon --title=egg-server-xzlblog_server --workers=3",
     "stop": "egg-scripts stop --title=egg-server-xzlblog_server",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
