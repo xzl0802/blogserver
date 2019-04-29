@@ -9,7 +9,12 @@
   "dependencies": {
     "egg": "^2.15.1",
     "egg-mysql": "^3.0.0",
-    "egg-scripts": "^2.11.0"
+    "egg-scripts": "^2.11.0",
+    "fs-extra": "^7.0.1",
+    "moment": "^2.24.0",
+    "puppeteer": "^1.15.0",
+    "superagent": "^5.0.4",
+    "wonderful-bing-wallpaper": "^0.2.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
