@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 11:42:12
+ * @Last Modified time: 2019-05-08 11:58:54
  */
  const puppeteer  = require("puppeteer");
  const request  = require("superagent");
@@ -31,3 +31,4 @@
     // await page.waitFor(2500); //爬取等待
     },
   };
+  
