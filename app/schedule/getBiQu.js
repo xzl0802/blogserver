@@ -2,33 +2,38 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 11:58:54
+ * @Last Modified time: 2019-05-08 14:40:39
  */
- const puppeteer  = require("puppeteer");
- const request  = require("superagent");
- const fs =require('fs'); 
- const moment = require('moment');
- module.exports = {
-    schedule: {
-     interval: '30m',
-      type:'all'
-    },
-    async task(ctx) {
-    // console.log(request('http://www.xbiquge.la'))   
-    const browser = await (puppeteer.launch({
-        timeout:150000,
-        ignoreHTTPSErrors:false,
-        devtools:false,
-        headless:true
-    }))
-    let page = await browser.newPage();
-    await page.goto('http://www.xbiquge.la/xuanhuanxiaoshuo/');
-    let dTitleHandle = await page.$('#newscontent');  // 使用css selector格式查找商品名称，返回
+const puppeteer  = require("puppeteer");
+const cheerio  = require("cheerio");
+const fs =require('fs'); 
+const moment = require('moment');
+module.exports = {
+   schedule: {
+    interval: '30d',
+     type:'all'
+   },
+   async task(ctx) {
+
+   const browser = await (puppeteer.launch({
+       timeout:150000,
+       ignoreHTTPSErrors:false,
+       devtools:false,
+       headless:true
+   }))
+    
+   let page = await browser.newPage();
+   await page.goto('http://www.xbiquge.la/xiaoshuodaquan/');  //371
+   let content = await page.content();
+    let dTitleHandle = await page.$('#main');  // 使用css selector格式查找商品名称，返回
     let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); // 获取dom innerHTML
-    console.log(dTitle);
-     //执行页面跳转  爬取所有小说
-     
-    // await page.waitFor(2500); //爬取等待
-    },
-  };
-  
+
+   let $ =cheerio.load(dTitle);
+//    $("li a ").each(function(i, e) {
+//        let url = $(e).attr("href");
+//     console.log($(e).text());
+// });
+   // await page.waitFor(2500); //爬取等待
+   }
+ };
+ 
