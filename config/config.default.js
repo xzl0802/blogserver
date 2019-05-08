@@ -38,7 +38,7 @@ module.exports = appInfo => {
   agent: false,
 };
 config.logger = {
-  dir: '../../log/dir',
+  dir: '../../log',
 };
   return config;
 };

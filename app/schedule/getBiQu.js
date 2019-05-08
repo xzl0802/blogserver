@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 11:16:08
+ * @Last Modified time: 2019-05-08 11:42:12
  */
  const puppeteer  = require("puppeteer");
  const request  = require("superagent");
@@ -10,7 +10,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-     interval: '30s',
+     interval: '30m',
       type:'all'
     },
     async task(ctx) {
@@ -26,6 +26,8 @@
     let dTitleHandle = await page.$('#newscontent');  // 使用css selector格式查找商品名称，返回
     let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); // 获取dom innerHTML
     console.log(dTitle);
+     //执行页面跳转  爬取所有小说
+     
     // await page.waitFor(2500); //爬取等待
     },
   };
