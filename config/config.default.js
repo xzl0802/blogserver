@@ -37,6 +37,8 @@ module.exports = appInfo => {
   // 是否加载到 agent 上，默认关闭
   agent: false,
 };
-
+config.logger = {
+  dir: '../log/dir',
+};
   return config;
 };

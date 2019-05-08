@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 11:08:49
+ * @Last Modified time: 2019-05-08 11:16:08
  */
  const puppeteer  = require("puppeteer");
  const request  = require("superagent");
@@ -10,7 +10,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-     interval: '30m',
+     interval: '30s',
       type:'all'
     },
     async task(ctx) {
@@ -22,6 +22,7 @@
         headless:true
     }))
     let page = await browser.newPage();
+    await page.goto('http://www.xbiquge.la/xuanhuanxiaoshuo/');
     let dTitleHandle = await page.$('#newscontent');  // 使用css selector格式查找商品名称，返回
     let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); // 获取dom innerHTML
     console.log(dTitle);
