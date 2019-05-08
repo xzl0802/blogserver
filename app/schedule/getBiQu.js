@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 14:40:39
+ * @Last Modified time: 2019-05-08 14:45:17
  */
 const puppeteer  = require("puppeteer");
 const cheerio  = require("cheerio");
@@ -10,7 +10,7 @@ const fs =require('fs');
 const moment = require('moment');
 module.exports = {
    schedule: {
-    interval: '30d',
+    interval: '30s',
      type:'all'
    },
    async task(ctx) {
@@ -22,17 +22,16 @@ module.exports = {
        headless:true
    }))
     
-   let page = await browser.newPage();
-   await page.goto('http://www.xbiquge.la/xiaoshuodaquan/');  //371
-   let content = await page.content();
-    let dTitleHandle = await page.$('#main');  // 使用css selector格式查找商品名称，返回
+    let page = await browser.newPage();
+    await page.goto('http://www.xbiquge.la/xiaoshuodaquan/');
+    let content = await page.content();
+    let dTitleHandle = await page.$('#main');  // 根据样式获取所需要内容
     let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); // 获取dom innerHTML
-
-   let $ =cheerio.load(dTitle);
-//    $("li a ").each(function(i, e) {
-//        let url = $(e).attr("href");
-//     console.log($(e).text());
-// });
+    let $ =cheerio.load(dTitle);
+    $("li a ").each(function(i, e) {
+       let url = $(e).attr("href"); //
+       let  name =$(e).text();
+   });
    // await page.waitFor(2500); //爬取等待
    }
  };
