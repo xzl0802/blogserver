@@ -10,7 +10,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-     interval: '30m',
+     interval: '30s',
       type:'all'
     },
     async task(ctx) {
@@ -23,12 +23,15 @@
     }))
      
      let page = await browser.newPage();
-    
-     await page.goto('http://www.wjlibw.space/gxew_6.html');  //371
-     let content = await page.content();
-     let dTitleHandle = await page.$('.mainArea'); 
-     let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); 
-     let $ =cheerio.load(dTitle);
+     var  url;
+      for (let index =536384; index < 759650; index++) {
+        url = 'http://www.wjlibw.space/mvtke_'+index+'.html'
+        await page.goto(url);  //371
+        let content = await page.content();
+        console.log(content);
+      }
+   
+
 //    $("li a ").each(function(i, e) {
 //        let url = $(e).attr("href");
 //     console.log($(e).text());
