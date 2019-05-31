@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-31 10:54:55
+ * @Last Modified time: 2019-05-31 10:59:30
  */
  const puppeteer  = require("puppeteer");
  const cheerio  = require("cheerio");
@@ -10,11 +10,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-<<<<<<< HEAD
-     interval: '30d',
-=======
      interval: '30s',
->>>>>>> 75473574eda27547eca51b348e0fd9b2722a5533
       type:'all'
     },
     async task(ctx) {
