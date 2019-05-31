@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-05-08 15:06:37
+ * @Last Modified time: 2019-05-31 10:46:59
  */
  const puppeteer  = require("puppeteer");
  const cheerio  = require("cheerio");
@@ -10,7 +10,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-     interval: '30m',
+     interval: '30d',
       type:'all'
     },
     async task(ctx) {
@@ -24,7 +24,7 @@
      
      let page = await browser.newPage();
     
-     await page.goto('http://www.wjlibw.space/gxew_6.html');  //371
+     await page.goto('http://www.baidu.com');  //371
      let content = await page.content();
      let dTitleHandle = await page.$('.mainArea'); 
      let dTitle = await page.evaluate(dTitle => dTitle.innerHTML, dTitleHandle); 
