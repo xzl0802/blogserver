@@ -5,7 +5,7 @@ module.exports = {
   // had enabled by egg
   //mysql
   mysql : {
-    enable: true,
+    enable: false,
     package: 'egg-mysql',
   }
 };
