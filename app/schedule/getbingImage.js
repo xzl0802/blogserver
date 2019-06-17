@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-28 15:59:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-04-29 16:30:00
+ * @Last Modified time: 2019-06-17 15:50:40
  */
  //获取bing 每日图片
  const WonderfulBingWallpaper = require('wonderful-bing-wallpaper');
@@ -19,8 +19,8 @@
         let options ={  size: 8,
             day: 7,
             resolution: resolutions[2],  
-            host: 'cn.bing.com',
-            local: 'zh-cn',};
+            host: 'www.bing.com',
+            local: 'en-US',};
     
         let wbw = new WonderfulBingWallpaper(options);
         wbw.getWallpapers().then(wallpaperJSON => {
