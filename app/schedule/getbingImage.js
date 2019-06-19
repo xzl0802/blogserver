@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-28 15:59:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-06-19 10:00:48
+ * @Last Modified time: 2019-06-19 14:35:39
  */
  //获取bing 每日图片
  const WonderfulBingWallpaper = require('wonderful-bing-wallpaper');
@@ -11,7 +11,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-      cron: '0 0 */8 * * *',
+      cron: '0 * */6 * * *',
       type:'all'
     },
     async task(ctx) {
@@ -24,10 +24,17 @@
     
         let wbw = new WonderfulBingWallpaper(options);
         wbw.getWallpapers().then(wallpaperJSON => {
-          console.log('233')
+    
          let imgName = moment().format('YYYYMMDD');
          let imgObj= wbw.humanizeWallpapers(wallpaperJSON[0]);
-         request(imgObj.defaultUrl).pipe(fs.createWriteStream('./app/public/image/bing/' + imgName+'.png')); 
+         let createPath = './app/public/image/bing/' + imgName+'.png';
+         fs.stat(createPath,(err,stats)=>{
+           if(err){
+            request(imgObj.defaultUrl).pipe(fs.createWriteStream()); 
+           }
+      
+         })
+         
      
 })
     },
