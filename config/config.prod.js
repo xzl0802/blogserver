@@ -14,7 +14,6 @@ module.exports = appInfo => {
   const config = {};
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1555057030501_9726';
-
   // add your middleware config here
   config.middleware = [];
   //mysql 配置
@@ -37,8 +36,10 @@ module.exports = appInfo => {
   // 是否加载到 agent 上，默认关闭
   agent: false,
 };
+
 config.logger = {
   dir: './../log',
 };
+
   return config;
 };

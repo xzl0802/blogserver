@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-28 15:59:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-06-19 14:35:39
+ * @Last Modified time: 2019-06-20 09:58:04
  */
  //获取bing 每日图片
  const WonderfulBingWallpaper = require('wonderful-bing-wallpaper');
@@ -20,20 +20,19 @@
             day: 7,
             resolution: resolutions[2],  
             host: 'www.bing.com',
-            local: 'en-US',};
-    
+            local: 'en-US',};    
         let wbw = new WonderfulBingWallpaper(options);
         wbw.getWallpapers().then(wallpaperJSON => {
-    
          let imgName = moment().format('YYYYMMDD');
          let imgObj= wbw.humanizeWallpapers(wallpaperJSON[0]);
          let createPath = './app/public/image/bing/' + imgName+'.png';
-         fs.stat(createPath,(err,stats)=>{
-           if(err){
-            request(imgObj.defaultUrl).pipe(fs.createWriteStream()); 
-           }
+         request(imgObj.defaultUrl).pipe(fs.createWriteStream()); 
+        //  fs.stat(createPath,(err,stats)=>{
+        //    if(err){
+         
+        //    }
       
-         })
+        //  })
          
      
 })
