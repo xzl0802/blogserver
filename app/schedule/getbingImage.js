@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-28 15:59:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-06-20 09:58:04
+ * @Last Modified time: 2019-06-20 10:01:07
  */
  //获取bing 每日图片
  const WonderfulBingWallpaper = require('wonderful-bing-wallpaper');
@@ -11,7 +11,7 @@
  const moment = require('moment');
  module.exports = {
     schedule: {
-      cron: '0 * */6 * * *',
+      cron: '0 0 */3 * * *',
       type:'all'
     },
     async task(ctx) {
