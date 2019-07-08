@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-06-28 16:35:56
+ * @Last Modified time: 2019-07-08 11:11:06
  */
 const puppeteer  = require("puppeteer");
 const cheerio  = require("cheerio");
@@ -10,7 +10,7 @@ const fs =require('fs');
 const moment = require('moment');
 module.exports = {
    schedule: {
-    cron: '0 0 */1 * * *',
+    cron: '0 */1 * * * *',
      type:'all'
    },
    async task(ctx) {
@@ -19,11 +19,12 @@ module.exports = {
        timeout:150000,
        ignoreHTTPSErrors:false,
        devtools:false,
-       headless:true
+       headless:true,
+       args: ['--no-sandbox', '--disable-setuid-sandbox']
    }))
 
    let page = await browser.newPage();
-   await page.goto('https://free-ss.site/');  //371
+   await page.goto('https://free-ss.site/');  
    let imgName = moment().format('YYYYMMDDHHMMSS')+'vps';
    await page.waitFor(200000);
    let createPath = './app/public/image/vps/' + imgName+'.png';
