@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-07-08 11:34:14
+ * @Last Modified time: 2019-07-08 15:16:57
  */
 const puppeteer  = require("puppeteer");
 const cheerio  = require("cheerio");
@@ -10,7 +10,7 @@ const fs =require('fs');
 const moment = require('moment');
 module.exports = {
    schedule: {
-    cron: '0 0 */1 * * *',
+    cron: '0 0 */8 * * *',
      type:'all'
    },
    async task(ctx) {
