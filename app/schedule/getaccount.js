@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-05-08 10:16:30 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-07-08 15:16:57
+ * @Last Modified time: 2019-07-08 16:31:52
  */
 const puppeteer  = require("puppeteer");
 const cheerio  = require("cheerio");
@@ -10,7 +10,7 @@ const fs =require('fs');
 const moment = require('moment');
 module.exports = {
    schedule: {
-    cron: '0 0 */8 * * *',
+    cron: '0 0 */800 * * *',
      type:'all'
    },
    async task(ctx) {
@@ -27,8 +27,10 @@ module.exports = {
    await page.goto('https://free-ss.site/');  
    let imgName = moment().format('YYYYMMDDHHMMSS')+'vps';
    await page.waitFor(200000);
-   let createPath = './app/public/image/vps/' + imgName+'.png';
-   await page.screenshot({path: createPath})
+   let dTitleHandle = await page.$('#tbss');  // 使用css selector格式查找商品名称，返回
+   console.log(dTitleHandle);
+  //  let createPath = './app/public/image/vps/' + imgName+'.png';
+  //  await page.screenshot({path: createPath})
 //    $("li a ").each(function(i, e) {
 //        let url = $(e).attr("href");
 //     console.log($(e).text());
