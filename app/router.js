@@ -10,5 +10,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/login',controller.login.loginIndex);
    router.get('/image',controller.image.imageIndex);  //处理图片获取接口
+   router.post('/count/ip',controller.count.countIP); //统计ip 接口
 };
 

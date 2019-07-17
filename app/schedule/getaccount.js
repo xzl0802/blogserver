@@ -1,19 +1,19 @@
-// /*
-//  * @Author: xzl 
-//  * @Date: 2019-05-08 10:16:30 
-//  * @Last Modified by: xzl
-//  * @Last Modified time: 2019-07-08 16:31:52
-//  */
-// const puppeteer  = require("puppeteer");
-// const cheerio  = require("cheerio");
-// const fs =require('fs'); 
-// const moment = require('moment');
-// module.exports = {
-//    schedule: {
-//     cron: '0 0 */800 * * *',
-//      type:'all'
-//    },
-//    async task(ctx) {
+/*
+ * @Author: xzl 
+ * @Date: 2019-05-08 10:16:30 
+ * @Last Modified by: xzl
+ * @Last Modified time: 2019-07-17 15:36:48
+ */
+const puppeteer  = require("puppeteer");
+const cheerio  = require("cheerio");
+const fs =require('fs'); 
+const moment = require('moment');
+module.exports = {
+   schedule: {
+    cron: '0 0 */800 * * *',
+     type:'all'
+   },
+   async task(ctx) {
 
 //    const browser = await (puppeteer.launch({
 //        timeout:150000,
@@ -36,5 +36,5 @@
 // //     console.log($(e).text());
 // // });
 //    // await page.waitFor(2500); //爬取等待
-//    }
-//  };
+   }
+ };
