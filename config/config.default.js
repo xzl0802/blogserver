@@ -40,5 +40,16 @@ module.exports = appInfo => {
 config.logger = {
   dir: './../log',
 };
+config.security = {
+  csrf: {
+    enable: false,
+    ignoreJSON: true
+  },
+  domainWhiteList: ['http://localhost:8080','https://xzl0802.top','https://www.xzl0802.top']
+};
+config.cors = {
+  origin:'*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTION'
+};
   return config;
 };
