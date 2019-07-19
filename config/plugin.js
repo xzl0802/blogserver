@@ -8,8 +8,12 @@ module.exports = {
     enable: true,
     package: 'egg-mysql',
   },
-cors :{
+cors :{    //跨域
     enable: true,
     package: 'egg-cors',
+  },
+  validate : {   //验证插件
+    enable: true,
+    package: 'egg-validate',
   }
 };
