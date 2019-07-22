@@ -43,7 +43,6 @@ config.logger = {
 config.security = {
   csrf: {
     enable: false,
-    ignoreJSON: true
   },
   domainWhiteList: ['http://localhost:8080','https://xzl0802.top','https://www.xzl0802.top']
 };
