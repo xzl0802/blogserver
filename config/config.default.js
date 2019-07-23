@@ -14,7 +14,7 @@ module.exports = appInfo => {
   const config = {};
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1555057030501_9726';
-
+  config.secrets = '092ac376c3207e0cb083e6f4d4c8ab6c'; //自定义签名盐值 
   // add your middleware config here
   config.middleware = [];
   //mysql 配置
@@ -49,6 +49,12 @@ config.security = {
 config.cors = {
   origin:'*',
   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTION'
+};
+config.session = {
+  key: 'EGG_SESS',
+  maxAge: 24 * 3600 * 1000, // 1 天
+  httpOnly: true,
+  encrypt: true,
 };
   return config;
 };
