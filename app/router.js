@@ -15,5 +15,6 @@ module.exports = app => {
    // #####################管理端接口######################
    router.post('/admin/login',controller.login.loginIndex); //登录处理
    router.get('/admin/info',loginAuth,controller.login.getUserInfo);//获取用户信息
+   router.post('/admin/count/ip',loginAuth,controller.count.getCountIpByPagination); //获取所有访问的Ip
 };
 
