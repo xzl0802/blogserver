@@ -20,8 +20,8 @@ class countController extends Controller {
    let page  =payload.page - 1;
    let start  = limit +1;
    let limit = payload.limit + page * limit;  
-   let res = await this.service.count.getCountIpByPagination(payload);
-
+   let res = await this.service.count.getCountIpByPagination({start,limit});
+    
    }
 }
 
