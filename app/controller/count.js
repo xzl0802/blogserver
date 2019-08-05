@@ -12,17 +12,18 @@ class countController extends Controller {
          
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx})
-  } 
+  }
   //分页获取访问数据
    async getCountIpByPagination(){
    let { ctx }  =this;
    let payload   = ctx.request.body || {};
+
    let page  =payload.page - 1;
-   let start  = limit +1;
-   let limit = payload.limit + page * limit;  
-   let res = await this.service.count.getCountIpByPagination({start,limit});
+   let start  = payload.limit +1;
+   let limit = payload.limit + page *  payload.limit;  
+  //let res = await this.service.count.getCountIpByPagination({start,limit});
      // 设置响应内容和响应状态码
-     ctx.helper.success({ctx,res})
+     ctx.helper.success({ctx})
    }
 }
 

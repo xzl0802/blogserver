@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-22 14:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-07-31 09:44:46
+ * @Last Modified time: 2019-08-05 16:24:07
  */
   // 管理端登录验证
   const jwt = require('jsonwebtoken');
@@ -19,19 +19,15 @@
       if(!verifyResult){
          ctx.helper.failure({ctx, code :50014 , message:'非法Token'})
       }
-
-     } catch (error) {
       
+     } catch (error) {
       if (error.name === 'TokenExpiredError') {  //token 令牌过期
         
        //401 代表当前用户为登录
       ctx.helper.failure({ctx, code :50012 , message:'登录过期'})
-      return
       }
 
      }
-   
-     
     next();
  }
  else{
@@ -39,6 +35,7 @@
     ctx.helper.failure({ctx, code :500010 , message:'当前用户未登录'})
  } 
  
+
    }
   }
    

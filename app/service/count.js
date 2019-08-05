@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:12:48 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-05 10:11:48
+ * @Last Modified time: 2019-08-05 16:50:26
  */
 const Service = require('egg').Service;
 
@@ -13,14 +13,13 @@ class countService extends Service {
          cid:payload.cid,
          city:payload.cname
     });  
-      }
-    
+      };
    async getCountIpByPagination(payload){
       let  sql =`
-       select  count(*) from ip_count  ORDER BY id LIMIT ${payload.start}, ${payload.limit}   
+       select  * from ip_count  LIMIT ${payload.start}, ${payload.limit}   
       `  
-      const row = await this.app.mysql.query(sql);
-      return row;
+      let row = await this.app.mysql.query(sql);
+      return { row };
    }
     }
 
