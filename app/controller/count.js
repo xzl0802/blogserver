@@ -21,9 +21,9 @@ class countController extends Controller {
    let page  =payload.page - 1;
    let start  = payload.limit +1;
    let limit = payload.limit + page *  payload.limit;  
-  //let res = await this.service.count.getCountIpByPagination({start,limit});
+  let res = await this.service.count.getCountIp({start,limit});
      // 设置响应内容和响应状态码
-     ctx.helper.success({ctx})
+     ctx.helper.success({ctx,res})
    }
 }
 

@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-22 14:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-05 16:24:07
+ * @Last Modified time: 2019-08-06 11:19:17
  */
   // 管理端登录验证
   const jwt = require('jsonwebtoken');
@@ -28,7 +28,8 @@
       }
 
      }
-    next();
+   
+     await next();
  }
  else{
     //401 代表当前用户为登录
