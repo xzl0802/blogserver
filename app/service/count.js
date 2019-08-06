@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:12:48 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-06 11:41:04
+ * @Last Modified time: 2019-08-06 16:08:03
  */
 const Service = require('egg').Service;
 
@@ -21,7 +21,7 @@ class countService extends Service {
       let all = await this.app.mysql.query(sql);
     
       let results = await this.app.mysql.select('ip_count', { // 搜索 post 表
-        orders: [['id','desc']], // 排序方式
+        orders: [['createTime','desc']], // 排序方式
         limit: payload.limit, // 返回数据量
         offset: payload.start, // 数据偏移量
       });
