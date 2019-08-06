@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:12:48 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-06 11:20:12
+ * @Last Modified time: 2019-08-06 11:41:04
  */
 const Service = require('egg').Service;
 
@@ -16,12 +16,16 @@ class countService extends Service {
       };
    async getCountIp(payload){
       let  sql =`
-       select  * from ip_count  LIMIT ${payload.start}, ${payload.limit}   
+       select  COUNT(*) AS total from ip_count ;
       `  
-      let row = await this.app.mysql.query(sql);
-      
-      return { row };
-      
+      let all = await this.app.mysql.query(sql);
+    
+      let results = await this.app.mysql.select('ip_count', { // 搜索 post 表
+        orders: [['id','desc']], // 排序方式
+        limit: payload.limit, // 返回数据量
+        offset: payload.start, // 数据偏移量
+      });
+      return {'total':all[0].total,'data':results}
    }
     }
 
