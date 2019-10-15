@@ -2,16 +2,16 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:12:48 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-06 16:08:03
+ * @Last Modified time: 2019-10-15 15:21:48
  */
 const Service = require('egg').Service;
 
 class countService extends Service {
     async create(payload) {
      await this.app.mysql.insert('ip_count', { 
-         ip: payload.cip,
+         cip: payload.cip,
          cid:payload.cid,
-         city:payload.cname
+         cname:payload.cname
     });  
       };
    async getCountIp(payload){
