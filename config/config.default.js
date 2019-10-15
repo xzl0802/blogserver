@@ -22,11 +22,11 @@ module.exports = appInfo => {
    // 单数据库信息配置
    client: {
     // host
-    host: 'rm-bp12c1m40v95055tkyo.mysql.rds.aliyuncs.com',
+    host: '106.13.177.99',
     // 端口号
     port: '3306',
     // 用户名
-    user: 'xzl',
+    user: 'blog',
     // 密码
     password: 'xzl18896988127XZL',
     // 数据库名
