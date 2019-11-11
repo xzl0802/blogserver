@@ -13,7 +13,7 @@ class LoginController extends Controller {
             let payload = ctx.request.body || {};
             let salt = bcrypt.genSaltSync(10);
             let username = payload.username;
-            let password = payload.passwo
+            let password = payload.password;
             //let hash = bcrypt.hashSync(password, salt); //加密前端传回的密码
             // 调用 Service 进行业务处理
             let user = await this.service.user.findbyUserName(username);
