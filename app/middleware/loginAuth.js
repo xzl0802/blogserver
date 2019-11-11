@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-22 14:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-06 11:19:17
+ * @Last Modified time: 2019-11-11 13:40:07
  */
   // 管理端登录验证
   const jwt = require('jsonwebtoken');
@@ -17,16 +17,23 @@
       let  verifyResult = await ctx.service.user.findbyUserByIdAndName(decoded.user_name,decoded.user_id);
      
       if(!verifyResult){
-         ctx.helper.failure({ctx, code :50014 , message:'非法Token'})
+         ctx.helper.failure({ctx, code :50014 , message:'非法Token'});
+         return;
       }
       
      } catch (error) {
+     
       if (error.name === 'TokenExpiredError') {  //token 令牌过期
-        
-       //401 代表当前用户为登录
+   
+      
       ctx.helper.failure({ctx, code :50012 , message:'登录过期'})
+      return;
       }
 
+      if (error.name === 'JsonWebTokenError') {  //token 解析错误  为非法token
+      ctx.helper.failure({ctx, code :50014 , message:'非法Token'})
+      return;
+      }
      }
    
      await next();
@@ -34,6 +41,7 @@
  else{
     //401 代表当前用户为登录
     ctx.helper.failure({ctx, code :500010 , message:'当前用户未登录'})
+    return;
  } 
  
 
