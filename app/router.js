@@ -13,8 +13,9 @@ module.exports = app => {
    router.post('/count/ip',controller.count.countIP); //统计ip 接口
    
    // #####################管理端接口######################
-   router.post('/admin/login',controller.login.loginIndex); //登录处理
-   router.get('/admin/info',loginAuth,controller.login.getUserInfo);//获取用户信息
+   router.post('/admin/login',controller.admin.login.loginIndex); //登录处理
+   router.get('/admin/info',loginAuth,controller.admin.login.getUserInfo);//获取用户信息
    router.post('/admin/count/ip',loginAuth,controller.count.getCountIpByPagination); //获取所有访问的Ip
+   router.get('/admin/log',loginAuth,controller.admin.log.logQuery);//后台日志查询接口
 };
 
