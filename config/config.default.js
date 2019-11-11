@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1555057030501_9726';
   config.secrets = '092ac376c3207e0cb083e6f4d4c8ab6c'; //自定义签名盐值 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['notfoundHandler'];
   //mysql 配置
   config.mysql={
    // 单数据库信息配置
@@ -44,7 +44,7 @@ config.security = {
   csrf: {
     enable: false,
   },
-  domainWhiteList: ['http://localhost:8080','https://xzl0802.top','https://www.xzl0802.top']
+  domainWhiteList: ['http://localhost:8080','https://xzl0802.top','https://www.xzl0802.top'] //跨域白名单
 };
 config.cors = {
   origin:'*',

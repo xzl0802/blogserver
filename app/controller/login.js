@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-30 10:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-11-11 13:44:56
+ * @Last Modified time: 2019-11-11 13:45:41
  */
 
 const Controller = require('egg').Controller;
@@ -13,7 +13,7 @@ class LoginController extends Controller {
             let payload = ctx.request.body || {};
             let salt = bcrypt.genSaltSync(10);
             let username = payload.username;
-            let password = payload.password;
+            let password = payload.passwo
             //let hash = bcrypt.hashSync(password, salt); //加密前端传回的密码
             // 调用 Service 进行业务处理
             let user = await this.service.user.findbyUserName(username);
