@@ -18,4 +18,3 @@ module.exports = app => {
    router.post('/admin/count/ip',loginAuth,controller.client.count.getCountIpByPagination); //获取所有访问的Ip
    router.get('/admin/log',loginAuth,controller.admin.log.logQuery);//后台日志查询接口
 };
-
