@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:13:43 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-08-06 10:32:21
+ * @Last Modified time: 2019-12-24 13:42:22
  */
 const moment = require('moment')
 const jwt  =   require('jsonwebtoken');
@@ -20,7 +20,7 @@ exports.success = ({ ctx, res = null, message = '请求成功' })=> {
 }
 
 //封装操作失败返回
-exports.failure =({ctx, code = 1, message = '操作失败'})=>{
+exports.failure =({ctx, code = 201, message = '操作失败'})=>{
 ctx.body = {
   code:code,
   message
