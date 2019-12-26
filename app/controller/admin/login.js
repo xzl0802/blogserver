@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-30 10:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-12-26 13:24:56
+ * @Last Modified time: 2019-12-26 15:40:39
  */
 
 const Controller = require('egg').Controller;
@@ -30,7 +30,6 @@ class LoginController extends Controller {
                 let res = {
                     token: token
                 }
-                ctx.session.token = token;
                 ctx.helper.success({ ctx, res });
             } else {
                 ctx.helper.failure({ ctx, message: '用户名或密码错误!' })

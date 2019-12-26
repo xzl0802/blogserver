@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:13:43 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-12-24 13:42:22
+ * @Last Modified time: 2019-12-26 15:41:03
  */
 const moment = require('moment')
 const jwt  =   require('jsonwebtoken');
@@ -34,7 +34,7 @@ exports.createToken  = (data,secrets)=>{
     user_id:data.id,
     user_name: data.name
   }, secrets, {
-    expiresIn: '3h' //时间根据自己定，具体可参考jsonwebtoken插件官方说明
+    expiresIn: '1h' //时间根据自己定，具体可参考jsonwebtoken插件官方说明
 
 })
 }
