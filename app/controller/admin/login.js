@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-30 10:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-12-26 15:40:39
+ * @Last Modified time: 2019-12-26 16:28:26
  */
 
 const Controller = require('egg').Controller;
@@ -27,10 +27,10 @@ class LoginController extends Controller {
             if (pwdCompare) {
 
                 let token = ctx.helper.createToken(user, this.app.config.secrets);
-                let res = {
+                let data = {
                     token: token
                 }
-                ctx.helper.success({ ctx, res });
+                ctx.helper.success({ ctx, data });
             } else {
                 ctx.helper.failure({ ctx, message: '用户名或密码错误!' })
             }

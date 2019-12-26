@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:13:43 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-12-26 15:41:03
+ * @Last Modified time: 2019-12-26 16:28:20
  */
 const moment = require('moment')
 const jwt  =   require('jsonwebtoken');
@@ -10,11 +10,11 @@ const jwt  =   require('jsonwebtoken');
 exports.formatTime = time => moment(time).format('YYYY-MM-DD HH:mm:ss')
 
 // 处理成功响应
-exports.success = ({ ctx, res = null, message = '请求成功' })=> {
+exports.success = ({ ctx, data})=> {
   ctx.body = {
     code: 200,
-    data: res,
-    message
+    data: data,
+    message: '请求成功'
   }
   ctx.status = 200
 }
@@ -32,7 +32,7 @@ ctx.status =200
 exports.createToken  = (data,secrets)=>{
    return jwt.sign({
     user_id:data.id,
-    user_name: data.name
+    user_name: data.code
   }, secrets, {
     expiresIn: '1h' //时间根据自己定，具体可参考jsonwebtoken插件官方说明
 
