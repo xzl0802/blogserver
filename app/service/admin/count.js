@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:12:48 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-10-15 15:21:48
+ * @Last Modified time: 2019-12-27 14:46:22
  */
 const Service = require('egg').Service;
 
@@ -14,6 +14,7 @@ class countService extends Service {
          cname:payload.cname
     });  
       };
+      
    async getCountIp(payload){
       let  sql =`
        select  COUNT(*) AS total from ip_count ;

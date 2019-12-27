@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-11-11 14:40:11 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-11-11 15:06:37
+ * @Last Modified time: 2019-12-27 14:46:37
  */
 'use strict';
 
@@ -14,18 +14,18 @@ class logController extends Controller {
     let { ctx } = this;
         
   }
-  // //分页获取访问数据
-  //  async getCountIpByPagination(){
-  //  let { ctx }  =this;
-  //  let payload   = ctx.request.body || {};
+  //分页获取访问数据
+   async getCountIpByPagination(){
+   let { ctx }  =this;
+   let payload   = ctx.request.body || {};
 
-  //  let page  =payload.page - 1;
-  //  let start  = payload.limit*page +1;
-  //  let limit = payload.limit;  
-  //  let res = await this.service.count.getCountIp({start,limit});
-  //    // 设置响应内容和响应状态码
-  //    ctx.helper.success({ctx,res})
-  //  }
+   let page  =payload.page - 1;
+   let start  = payload.limit*page +1;
+   let limit = payload.limit;  
+   let res = await this.service.admin.count.getCountIp({start,limit});
+     // 设置响应内容和响应状态码
+     ctx.helper.success({ctx,res})
+   }
 }
 
 module.exports = logController;

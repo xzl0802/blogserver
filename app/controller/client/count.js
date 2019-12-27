@@ -8,8 +8,7 @@ class countController extends Controller {
     let { ctx } = this;
     let payload = ctx.request.body || {}
     // 调用 Service 进行业务处理
-    let res = await this.service.count.create(payload);
-         
+    await this.service.count.create(payload);      
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx})
   }
@@ -18,10 +17,6 @@ class countController extends Controller {
    let { ctx }  =this;
    let payload   = ctx.request.body || {};
 
-   let page  =payload.page - 1;
-   let start  = payload.limit*page +1;
-   let limit = payload.limit;  
-   let res = await this.service.count.getCountIp({start,limit});
      // 设置响应内容和响应状态码
      ctx.helper.success({ctx,res})
    }
