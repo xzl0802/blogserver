@@ -13,10 +13,6 @@ module.exports = appInfo => {
    **/
   const config = {};
   // use for cookie sign key, should change to your own and keep security
-  config.session= {
-    renew: true,
-    maxAge: 7*24 * 3600 * 1000, // 7 天
-},
   config.keys = appInfo.name + '_1555057030501_9726';
   config.secrets = '092ac376c3207e0cb083e6f4d4c8ab6c'; //自定义签名盐值 
   // add your middleware config here

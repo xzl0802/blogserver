@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:13:43 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-12-26 16:28:20
+ * @Last Modified time: 2020-01-02 15:34:58
  */
 const moment = require('moment')
 const jwt  =   require('jsonwebtoken');
@@ -31,8 +31,8 @@ ctx.status =200
 //封装生成前端token
 exports.createToken  = (data,secrets)=>{
    return jwt.sign({
-    user_id:data.id,
-    user_name: data.code
+    user_id:data.id, //用户ID
+    user_name: data.code //用户code
   }, secrets, {
     expiresIn: '1h' //时间根据自己定，具体可参考jsonwebtoken插件官方说明
 
