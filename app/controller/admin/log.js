@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-11-11 14:40:11 
  * @Last Modified by: xzl
- * @Last Modified time: 2020-01-03 14:30:49
+ * @Last Modified time: 2020-01-07 16:19:35
  */
 'use strict';
 
@@ -20,7 +20,7 @@ class logController extends Controller {
    let payload   = ctx.request.body || {};
 
    let page  =payload.page - 1;
-   let start  = payload.limit*page +1;
+   let start  = payload.limit*page;
    let limit = payload.limit;  
    let data = await this.service.admin.count.getCountIp({start,limit});
      // 设置响应内容和响应状态码

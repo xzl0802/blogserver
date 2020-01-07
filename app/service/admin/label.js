@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2020-01-03 15:36:22 
  * @Last Modified by: xzl
- * @Last Modified time: 2020-01-07 14:49:30
+ * @Last Modified time: 2020-01-07 16:19:12
  */
 
 
@@ -26,7 +26,7 @@ class labelService extends Service {
     }
 
     async  addLabel (params){  //新增标签sql
-      await this.app.mysql.insert('label',{"name":params.name,"description":params.description,"createdUser":params.createdUser})      
+      await this.app.mysql.insert('label',{"name":params.name,"description":params.description,"createdUser":params.loginUser})      
 
     }
 
