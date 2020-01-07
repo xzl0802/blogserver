@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-07-18 15:13:43 
  * @Last Modified by: xzl
- * @Last Modified time: 2020-01-03 11:29:08
+ * @Last Modified time: 2020-01-07 15:17:48
  */
 const moment = require('moment')
 const jwt  =   require('jsonwebtoken');
@@ -37,4 +37,11 @@ exports.createToken  = (data,secrets)=>{
     expiresIn: '2h' //时间根据自己定，具体可参考jsonwebtoken插件官方说明
 
 })
+}
+//权限验证通过后解析前端的token  
+exports.parsingToken = ({ctx})=>{
+  if(ctx.request.header['authorization']){  //当处于·登录状态时
+  let userToken = ctx.request.header['authorization'];
+  return jwt.verify(userToken, ctx.app.config.secrets) ;
+  }
 }

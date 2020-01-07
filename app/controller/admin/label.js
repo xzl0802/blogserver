@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2020-01-03 15:28:47 
  * @Last Modified by: xzl
- * @Last Modified time: 2020-01-03 16:06:04
+ * @Last Modified time: 2020-01-07 15:14:06
  */
 'use strict';
 
@@ -22,6 +22,16 @@ class labelController extends Controller {
      // 设置响应内容和响应状态码
      ctx.helper.success({ctx,data})
    }
+
+    //添加标签
+    async addLabel(){
+     let  {ctx} = this;
+     let  payload  = ctx.request.body || {};
+     let  name  =payload.name;
+     let  description  =payload.desc;
+
+    }
+
 }
 
 module.exports = labelController;
