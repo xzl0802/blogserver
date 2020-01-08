@@ -2,7 +2,7 @@
  * @Author: xzl 
  * @Date: 2019-04-30 10:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-11-11 13:45:41
+ * @Last Modified time: 2019-12-26 16:28:26
  */
 
 const Controller = require('egg').Controller;
@@ -12,11 +12,11 @@ class LoginController extends Controller {
             const { ctx } = this;
             let payload = ctx.request.body || {};
             let salt = bcrypt.genSaltSync(10);
-            let username = payload.username;
+            let username = payload.userName;
             let password = payload.password;
             //let hash = bcrypt.hashSync(password, salt); //加密前端传回的密码
             // 调用 Service 进行业务处理
-            let user = await this.service.user.findbyUserName(username);
+            let user = await this.service.admin.login.findbyUserName(username);
             if (!user) {
                 ctx.helper.failure({ ctx, message: '用户登录信息不存在!' })
                 return;
@@ -27,20 +27,15 @@ class LoginController extends Controller {
             if (pwdCompare) {
 
                 let token = ctx.helper.createToken(user, this.app.config.secrets);
-                let res = {
+                let data = {
                     token: token
                 }
-                ctx.session.token = token;
-                ctx.helper.success({ ctx, res });
+                ctx.helper.success({ ctx, data });
             } else {
                 ctx.helper.failure({ ctx, message: '用户名或密码错误!' })
             }
         }
-        //获取用户信息·
-    async getUserInfo() {
-        const { ctx } = this;
-        ctx.helper.success({ ctx });
-    }
+  
 }
 
 module.exports = LoginController;

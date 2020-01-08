@@ -2,11 +2,11 @@
  * @Author: xzl 
  * @Date: 2019-07-22 14:05:18 
  * @Last Modified by: xzl
- * @Last Modified time: 2019-11-11 13:40:07
+ * @Last Modified time: 2020-01-03 11:28:48
  */
   // 管理端登录验证
   const jwt = require('jsonwebtoken');
-  module.exports =options=>{
+  module.exports = options=>{
    return async function(ctx,next){
   if(ctx.request.header['authorization']){  //当处于·登录状态时
     let userToken = ctx.request.header['authorization'];
@@ -15,7 +15,6 @@
      try {
       decoded = jwt.verify(userToken, ctx.app.config.secrets) ;
       let  verifyResult = await ctx.service.user.findbyUserByIdAndName(decoded.user_name,decoded.user_id);
-     
       if(!verifyResult){
          ctx.helper.failure({ctx, code :50014 , message:'非法Token'});
          return;

@@ -12,6 +12,10 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = {};
+  config.validate = {
+    enable: true,
+    package: 'egg-validate',
+  };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1555057030501_9726';
   config.secrets = '092ac376c3207e0cb083e6f4d4c8ab6c'; //自定义签名盐值 
