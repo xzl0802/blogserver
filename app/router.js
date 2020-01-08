@@ -18,4 +18,7 @@ module.exports = app => {
    router.post('/admin/count/ip',loginAuth,controller.admin.log.getCountIpByPagination); //获取所有访问的Ip
    router.post('/admin/label/query',loginAuth,controller.admin.label.getAllLabel);//文章标签查询接口
    router.post('/admin/label/add',loginAuth,controller.admin.label.addLabel);// 文章标签新增接口
+   router.post('/admin/label/update',loginAuth,controller.admin.label.updateLabel);// 文章标签修改接口
+   router.get('/admin/label/delete/:id',loginAuth,controller.admin.label.deleteLabel);// 文章标签修改接口
+
 };
